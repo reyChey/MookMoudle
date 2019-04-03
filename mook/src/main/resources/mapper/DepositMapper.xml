@@ -10,7 +10,7 @@
         deposit_money as 'depositMoney',
         grand_money as 'grandMoney',
         deposit_date as 'depositDate',
-        remain_balance as 'remain_balance',
+        remain_balance as 'remainBalance',
         del_flag as 'delFlag'
         from deposit
         <where>
@@ -27,20 +27,16 @@
         deposit_money,
         grand_money,
         deposit_date,
+        remain_balance,
         del_flag
         )values(
         #{memberId},
         #{depositMoney},
         #{grandMoney},
         #{depositDate},
+        #{remainBalance},
         '0'
         )
     </insert>
-
-    <update id="update">
-        update deposit set
-          remain_balance = #{remain_balance},
-        where id = #{id}
-    </update>
 
 </mapper>

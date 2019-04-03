@@ -5,12 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class CheckInRecord extends BaseModel{
     private String workerId;
-    private String year;
-    private String month;
-    private int checkTimes;
+    private Date checkinDate;
 }

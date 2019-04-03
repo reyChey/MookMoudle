@@ -11,7 +11,7 @@
         consume_discount as 'consumeDiscount',
         consume_date as 'consumeDate',
         del_flag as 'delFlag'
-        from consumeRecord
+        from consumerecord
     </select>
 
     <select id="find" resultType="edu.nju.mook.app.model.ConsumeRecord">
@@ -21,54 +21,25 @@
         consume_discount as 'consumeDiscount',
         consume_date as 'consumeDate',
         del_flag as 'delFlag'
-        from worker
+        from consumerecord
         <where>
-            <if test="username !=null and username != ''">
-                and username= #{username}
+            <if test="memberId !=null and memberId != ''">
+                and member_id = #{memberId}
             </if>
-            <if test="password !=null and password != ''">
-                and password = #{password}
-            </if>
-            <if test="gender !=null and gender != ''">
-                and gender = #{gender}
-            </if>
-            <if test="workerType !=null and workerType != ''">
-                and worker_type = #{workerType}
+            <if test="cosumeDate !=null and consumeDate != ''">
+                and consume_date = #{consumeDate}
             </if>
         </where>
         limit 1
     </select>
 
-    <!--插入语句-->
-    <insert id="insert">
-        insert into worker (
-        username,
-        password,
-        gender,
-        phone,
-        address,
-        worker_type,
-        del_flag
-        )values(
-        #{username},
-        #{password},
-        #{gender},
-        #{phone},
-        #{address},
-        #{workerType},
-        '0'
-        )
-    </insert>
-
     <!--更新操作-->
     <update id="update">
-        update worker set
-        username = #{username},
-        password = #{password},
-        phone = #{phone},
-        gender = #{gender},
-        address = #{address},
-        worker_type = #{workerType}
+        update consumerecord set
+        member_id = #{memberId},
+        consume_total = #{consumeTotal},
+        consume_discount = #{consumeDiscount},
+        consume_date = #{consumeDate},
         where id = #{id}
     </update>
 

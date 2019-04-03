@@ -15,5 +15,5 @@ public class Deposit extends BaseModel{
     private int depositMoney;
     private int grandMoney;
     private Date depositDate;
-    private int remain_balance;
+    private int remainBalance;
 }
