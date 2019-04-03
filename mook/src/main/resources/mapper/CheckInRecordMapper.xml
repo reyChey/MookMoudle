@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nju.mook.app.dao.CheckInRecordMapper">
+
+    <!--find方法-->
+    <select id="find" resultType="edu.nju.mook.app.model.CheckInRecord">
+        select
+        worker_id as 'workerId',
+        year,
+        month,
+        check_times as 'checkTimes',
+        del_flag as 'delFlag'
+        from checkInRecord
+        <where>
+            <if test="worker_id !=null and worker_id != ''">
+                and worker_id = #{workerId}
+            </if>
+            <if test="year !=null and year != ''">
+                and year = #{year}
+            </if>
+            <if test="month !=null and month != ''">
+                and month = #{month}
+            </if>
+        </where>
+        limit 1
+    </select>
+
+    <!--插入语句-->
+    <insert id="insert">
+        insert into checkInRecord (
+        worker_id,
+        year,
+        month,
+        check_times,
+        del_flag
+        )values(
+        #{workerId},
+        #{year},
+        #{month},
+        #{checkTimes},
+        '0'
+        )
+    </insert>
+
+    <!--更新操作-->
+    <update id="update">
+        update checkInRecord set
+        check_times,
+        where id = #{id}
+    </update>
+
+    <update id = "delete" parameterType="java.lang.Long">
+        update checkInRecord set
+        del_flag = '1'
+        where id = #{id}
+    </update>
+
+</mapper>

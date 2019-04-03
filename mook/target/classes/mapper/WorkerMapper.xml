@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nju.mook.app.dao.WorkerMapper">
+
+    <!--find方法-->
+    <select id="find" resultType="edu.nju.mook.sys.security.Worker">
+        select
+        username,
+        password,
+        gender,
+        phone,
+        address,
+        worker_type as 'workerType',
+        del_flag as 'delFlag'
+        from worker
+        <where>
+            <if test="username !=null and username != ''">
+                and username=#{username}
+            </if>
+            <if test="password !=null and password != ''">
+                and password = #{password}
+            </if>
+        </where>
+        limit 1
+    </select>
+
+
+    <!--插入语句-->
+    <insert id="insert">
+        insert into worker (
+          username,
+          password,
+          gender,
+          phone,
+          address,
+          worker_type,
+          del_flag
+        )values(
+          #{username},
+          #{password},
+          #{gender},
+          #{phone},
+          #{address},
+          #{workerType},
+          '0'
+        )
+    </insert>
+
+    <!--更新操作-->
+    <update id="update">
+        update user set
+          username = #{username},
+          password = #{password},
+          phone = #{phone},
+        where id = #{id}
+    </update>
+
+    <update id = "delete" parameterType="java.lang.Long">
+        update user set
+          del_flag = '1'
+        where id = #{id}
+    </update>
+
+</mapper>
