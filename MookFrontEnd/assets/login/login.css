@@ -1,0 +1,62 @@
+.background {
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.login-background {
+    background-color: black;
+    width: 500px;
+    height: 15%;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    position: absolute;
+    top: 20%;
+    left: 33%;
+}
+
+.login-background-1 {
+    background-color: white;
+    width: 500px;
+    height: 40%;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    position: absolute;
+    top: 35%;
+    left: 33%;
+}
+
+input {
+    width: 400px;
+    height: 32px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-left: 50px;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+}
+
+input:focus {
+    outline:none;
+    border-bottom-style: outset;
+}
+
+
+.username {
+    margin-top: 50px;
+    border-bottom-style: inset;
+}
+
+.password {
+    margin-top: 30px;
+    border-bottom-style: inset;
+}
+
+.submit {
+    border-radius: 0.3em;
+    background-color: #FFA500;
+    color: #fff;
+    margin-top: 40px;
+}
